@@ -11,6 +11,7 @@ import torch
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 pd.set_option("mode.chained_assignment",None)
 pd.options.display.max_rows = 5
 
@@ -20,8 +21,8 @@ pd.options.display.max_rows = 5
 # %%
 #Loading Dataset
 
-spotify_dataset = pd.read_csv('../data/data.csv')
-display(spotify_dataset)
+spotify_dataset = pd.read_csv('..\data\data.csv')
+spotify_dataset
 
 # %%
 #Mapping music genres to numbers and replacing them in the dataset
@@ -29,7 +30,7 @@ display(spotify_dataset)
 genres = sorted(list(set(spotify_dataset["Genre"])))
 
 character_to_num = { ch:i for i,ch in enumerate(genres) }
-print(character_to_num)
+#print(character_to_num)
 
 spotify_copy = spotify_dataset.copy()
 mask = spotify_copy.loc[:,"Genre"]
@@ -41,7 +42,7 @@ for i, ch in enumerate(spotify_copy.loc[:,"Genre"]):
 col = spotify_copy.pop('Genre')
 spotify_copy.insert(16,col.name,col)
 
-display(spotify_copy)
+spotify_copy
 
 # %%
 #Data scaling and Splitting
@@ -54,11 +55,11 @@ targets = scaler.fit_transform(dataset[-11000:,-1].reshape(11000,1))
 
 train_features = features[-features.shape[0]:-1000]
 train_targets = targets[-targets.shape[0]:-1000]
-print(train_features.shape,train_targets.shape)
+#print(train_features.shape,train_targets.shape)
 
 test_features = features[-1000:]
 test_targets = targets[-1000:]
-print(test_features.shape,test_targets.shape)
+#print(test_features.shape,test_targets.shape)
 
 # %% [markdown]
 # ## Model Definition
@@ -150,7 +151,8 @@ loss_func = torch.nn.MSELoss()
 import tqdm
 
 #Model 1 Training
-print('Model 1  ______________________________________')
+print('Model Training...')
+print('\nModel 1  ______________________________________')
 
 for epoch in range(epochs):
     for i in tqdm.trange(batch_split_num):
@@ -315,7 +317,5 @@ torch.save({
 
 testing = np.save('../demo/spotify_testing_data',test_features)
 
-# %%
-print(test_features[0])
-
+print('Training Complete!')
 

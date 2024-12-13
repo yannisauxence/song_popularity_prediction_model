@@ -20,7 +20,7 @@ Ensure you have Python 3.7 or later installed on your system. It's recommended t
     pip install -r requirements.txt
     ```
 
-3. Look for the dataset in the root directory of the project. Ensure the file is named `data.csv`. Or download it [here](https://www.kaggle.com/datasets/thebumpkin/10400-classic-hits-10-genres-1923-to-2023)
+3. Look for the dataset in the 'data/' directory of the project. Ensure the file is named `data.csv`. Or download it [here](https://www.kaggle.com/datasets/thebumpkin/10400-classic-hits-10-genres-1923-to-2023)
 
 ## How to Run
 1. Open the notebook `demo.ipynb` in Jupyter Notebook or JupyterLab located in the 'demo/' folder
@@ -30,19 +30,19 @@ Ensure you have Python 3.7 or later installed on your system. It's recommended t
     - Make predictions on sample data.
     - Save results in the 'results/' folder
 
-Alternatively, run (`demo.py`) it directly:
+Alternatively, run `demo.py` it directly:
 ```bash
 python demo/demo.py
 ```
-3. In the 'src/' folder you will find thr codebase for the model training in either 'main.py' or 'main.ipynb' (added in cae 'main.py' does not work)
+3. In the `src/` folder you will find thr codebase for the model training in either 'main.py' or 'main.ipynb' (added in cae 'main.py' does not work)
 
 ## Expected Output
 1. Running the demo script will output a visualization of the first row of the testing dataset, to make sure the data was loaded properly.
 
-2. Running 'main.py' or 'main.ipynb' will train the model and output the model's training loss, testing loss, and number of correct predictions
+2. Running 'main.py` or 'main.ipynb` will train the model and output the model's training loss, testing loss, and number of correct predictions
 
 ## Pre-trained Model Link
-You can find the pre_trained model in the "checkpoint/" directory, or you can download it [here](https://huggingface.co/yannisauxence/song_pop/tree/main) and place it in the `checkpoint/` directory.
+You can find the pre_trained model in the "checkpoint/` directory, or you can download it [here](https://huggingface.co/yannisauxence/song_pop/tree/main) and place it in the `checkpoint/` directory.
 
 ## Acknowledgments
 - Dataset sourced from [Kaggle](https://www.kaggle.com/datasets/thebumpkin/10400-classic-hits-10-genres-1923-to-2023).
